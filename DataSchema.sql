@@ -6,7 +6,7 @@ CREATE TABLE users (
     CHECK (REGEXP_LIKE(full_name, '^[A-Za-zА-Яа-яІіЇїЄє'' -]{2,100}$')),
     CONSTRAINT chk_users_location_name
     CHECK (REGEXP_LIKE(location_name, '^[A-Za-zА-Яа-яІіЇїЄє0-9'' -]{2,100}$'))
-)
+);
 
 CREATE TABLE budgets (
     budget_id NUMBER PRIMARY KEY,
