@@ -1,0 +1,19 @@
+name: Program Code Convention
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  javascript-code-linter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code in Repository
+        uses: actions/checkout@v4
+
+      - name: Install Biome
+        run: npm install --save-dev --save-exact @biomejs/biome
+
+      - name: Check JavaScript Code
+        run: npx @biomejs/biome check ProgramCode.js
