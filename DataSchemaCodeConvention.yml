@@ -1,0 +1,19 @@
+name: Data Schema Code Convention
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sql-linter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code in Repository
+        uses: actions/checkout@v4
+
+      - name: Install SQLFluff
+        run: pip install sqlfluff
+
+      - name: Check SQL schema
+        run: sqlfluff lint DataSchema.sql --dialect postgres
